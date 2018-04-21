@@ -76,32 +76,6 @@ INSERT INTO `Decorations` VALUES ('Arches',50000),('Centerpieces',30000),('Fabri
 UNLOCK TABLES;
 
 --
--- Table structure for table `Equip_inventory`
---
-
-DROP TABLE IF EXISTS `Equip_inventory`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Equip_inventory` (
-  `e_id` varchar(3) NOT NULL,
-  `booking_date` date NOT NULL,
-  `qty` int(11) NOT NULL,
-   UNIQUE KEY `valid_index` (`booking_date`,`e_id`),
-   CONSTRAINT `Equip_inventory_ibfk_1` FOREIGN KEY (`e_id`) REFERENCES `Equipments` (`e_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-   CONSTRAINT `Equip_inventory_ibfk_2` FOREIGN KEY (`booking_date`) REFERENCES `Book_an_event` (`booking_date`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Equip_inventory`
---
-
-LOCK TABLES `Equip_inventory` WRITE;
-/*!40000 ALTER TABLE `Equip_inventory` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Equip_inventory` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `Equip_select`
 --
 
@@ -248,6 +222,32 @@ LOCK TABLES `Foodtype` WRITE;
 /*!40000 ALTER TABLE `Foodtype` DISABLE KEYS */;
 INSERT INTO `Foodtype` VALUES ('Continental',2000),('Indian',1000),('Mexican',3000),('Oriental',2500);
 /*!40000 ALTER TABLE `Foodtype` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Equip_inventory`
+--
+
+DROP TABLE IF EXISTS `Equip_inventory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Equip_inventory` (
+  `e_id` varchar(3) NOT NULL,
+  `booking_date` date NOT NULL,
+  `qty` int(11) NOT NULL,
+   UNIQUE KEY `valid_index` (`booking_date`,`e_id`),
+   CONSTRAINT `Equip_inventory_ibfk_1` FOREIGN KEY (`e_id`) REFERENCES `Equipments` (`e_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+   CONSTRAINT `Equip_inventory_ibfk_2` FOREIGN KEY (`booking_date`) REFERENCES `Book_an_event` (`booking_date`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Equip_inventory`
+--
+
+LOCK TABLES `Equip_inventory` WRITE;
+/*!40000 ALTER TABLE `Equip_inventory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Equip_inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
